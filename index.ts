@@ -1,10 +1,10 @@
 import { Client, FileType } from "basic-ftp";
 import fs from 'node:fs';
 
-const pathToBackup = 'F:/BioAufgaben/';
-const pathToBackupOnPc = 'C:/handyBackup/bioProjekt/';
+const pathToBackup = '';
+const pathToBackupOnPc = '';
 
-const ignoreDir = ['Screenshots', 'Camera', 'Screen recordings', 'Clipped images', 'Videocaptures', 'Memes'];
+const ignoreDir = [''];
 
 async function mapAndTransferFiles() {
     const client = new Client(0);
@@ -15,10 +15,10 @@ async function mapAndTransferFiles() {
 
     try {
         await client.access({
-            host: "192.168.0.234",
-            port: 4487,
-            user: "pc",
-            password: "638246",
+            host: "",
+            port: 0,
+            user: "",
+            password: "",
         });
 
         console.log("Verbunden mit FTP-Server!");
