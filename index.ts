@@ -11,7 +11,7 @@ async function mapAndTransferFiles() {
 
     let result: { name: string, pics: string[] }[] = [];
     let filesTransferd = 0;
-    let filesSkiped = 0;
+    let filesSkipped = 0;
 
     try {
         await client.access({
@@ -55,15 +55,15 @@ async function mapAndTransferFiles() {
                     filesTransferd++;
                 } else {
                     console.log(`Datei existiert bereits: ${localPath}`);
-                    filesSkiped++;
+                    filesSkipped++;
                 }
             }
         }
     } catch (err) {
-        console.error("Fehler:", err);
+        console.error("error:", err);
     } finally {
         client.close();
-        console.log(`files transfer: ${filesTransferd} files skiped: ${filesSkiped}`);
+        console.log(`files transfer: ${filesTransferd} files skipped: ${filesSkipped}`);
     }
 }
 
