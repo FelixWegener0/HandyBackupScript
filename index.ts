@@ -1,10 +1,8 @@
 import { Client, FileType } from "basic-ftp";
 import fs from 'node:fs';
 
-const pathToBackup = '';
-const pathToBackupOnPc = '';
-
-const ignoreDir = [''];
+const pathToBackup = process.env.PATH_TO_BACKUP;
+const ignoreDir = ['Screenshots', 'Camera', 'Screen recordings', 'Clipped images', 'Videocaptures', 'Memes'];
 
 async function mapAndTransferFiles() {
     const client = new Client(0);
@@ -15,10 +13,10 @@ async function mapAndTransferFiles() {
 
     try {
         await client.access({
-            host: "",
-            port: 0,
-            user: "",
-            password: "",
+            host: process.env.IP,
+            port: parseInt(process.env.PORT || '0'),
+            user: process.env.USER,
+            password: process.env.PASSWORD,
         });
 
         console.log("Verbunden mit FTP-Server!");
